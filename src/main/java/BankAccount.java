@@ -2,9 +2,13 @@ public class BankAccount {
     private String accountNumber;
     private double balance;
 
-    public BankAccount(String accountNumber) {
+    public BankAccount(String accountNumber, double initialBalance) {
         this.accountNumber = accountNumber;
-        this.balance = 0;
+        if (initialBalance >= 0) {
+            this.balance = initialBalance;
+        } else {
+            throw new IllegalArgumentException("Initial balance cannot be negative");
+        }
     }
 
     public String getAccountNumber() {
